@@ -1,0 +1,100 @@
+section.calendar {
+    display:flex;
+}
+section.calendar div.times, section.calendar div.day {
+    border-right:1px solid black;
+    position:relative;
+}
+section.calendar div.times {
+    color:#9e9e9e;
+}
+section.calendar div.times div.time, 
+section.calendar div.times div.pad, 
+section.calendar div.day div.time,
+section.calendar div.day div.header,
+section.calendar div.day div.time, 
+section.calendar div.day div.event{
+    border-top:1px solid black;
+    height:48px;
+    padding:0 8px;
+}
+section.calendar div.times div.pad, section.calendar div.day div.header {
+    border-top:0;
+    height:32px;
+}
+section.calendar div.day {
+    flex:1;
+}
+section.calendar div.day:last-of-type {
+    border-right:none;
+}
+section.calendar div.day div.header {
+    font-weight:bold;
+    border-bottom:1px solid black;
+}
+section.calendar div.day div.event {
+    position:absolute;
+    border:1px solid black;
+    background:#90caf9;
+    right:-1px;
+    left:-1px;
+}
+section.calendar div.day div.event:hover {
+    left:-8px;
+    right:-8px;
+    z-index:1;
+    box-shadow:0 0 8px black;
+    transition:all .1s;
+}
+section.calendar div.day div.location {
+    opacity:.54;
+}
+
+section.calendar div.day div.event.a8 {
+    top:32px;
+}
+section.calendar div.day div.event.a9 {
+    top:81px;
+}
+section.calendar div.day div.event.a10 {
+    top:130px;
+}
+section.calendar div.day div.event.a11 {
+    top:179px;
+}
+section.calendar div.day div.event.p12 {
+    top:228px;
+}
+section.calendar div.day div.event.p1 {
+    top:277px;
+}
+section.calendar div.day div.event.p2 {
+    top:326px;
+}
+section.calendar div.day div.event.p3 {
+    top:375px;
+}
+section.calendar div.day div.event.p4 {
+    top:424px;
+}
+section.calendar div.day div.event.p5 {
+    top:473px;
+}
+section.calendar div.day div.event.o15 {
+    margin-top:12px;
+}
+section.calendar div.day div.event.o30 {
+    margin-top:24px;
+}
+section.calendar div.day div.event.m15 {
+    height:12px;
+}
+section.calendar div.day div.event.m30 {
+    height:24px;
+}
+section.calendar div.day div.event.m45 {
+    height:36px;
+}
+section.calendar div.day div.event.m90 {
+    height:73px;
+}
