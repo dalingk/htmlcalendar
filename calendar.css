@@ -2,11 +2,15 @@ section.calendar {
     display:flex;
 }
 section.calendar div.times, section.calendar div.day {
-    border-right:1px solid black;
     position:relative;
+}
+section.calendar div.day {
+    border-left:1px solid black;
+    min-width:0;
 }
 section.calendar div.times {
     color:#9e9e9e;
+    color:rgba(0,0,0,0.38);
 }
 section.calendar div.times div.time, 
 section.calendar div.times div.pad, 
@@ -25,12 +29,12 @@ section.calendar div.times div.pad, section.calendar div.day div.header {
 section.calendar div.day {
     flex:1;
 }
-section.calendar div.day:last-of-type {
-    border-right:none;
-}
 section.calendar div.day div.header {
     font-weight:bold;
-    border-bottom:1px solid black;
+    border-bottom:1px solid black
+}
+section.calendar div.day div.multiple {
+    display:flex;
 }
 section.calendar div.day div.event {
     position:absolute;
@@ -38,18 +42,26 @@ section.calendar div.day div.event {
     background:#90caf9;
     right:-1px;
     left:-1px;
+    overflow:hidden;
+}
+section.calendar div.day:hover {
+    flex:4;
 }
 section.calendar div.day div.event:hover {
-    left:-8px;
-    right:-8px;
     z-index:1;
     box-shadow:0 0 8px black;
     transition:all .1s;
 }
-section.calendar div.day div.location {
-    opacity:.54;
+/* Prevent more than one line of text */
+section.calendar div.day header, section.calendar div.day div.location, section.calendar div.day div.header {
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
 }
-
+section.calendar div.day div.location {
+    color:black;
+    color:rgba(0,0,0,0.54);
+}
 section.calendar div.day div.event.a8 {
     top:32px;
 }
@@ -90,7 +102,7 @@ section.calendar div.day div.event.m15 {
     height:12px;
 }
 section.calendar div.day div.event.m30 {
-    height:24px;
+    height:23px;
 }
 section.calendar div.day div.event.m45 {
     height:36px;
