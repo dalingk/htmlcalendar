@@ -6,16 +6,16 @@ var calendar = {
     },
     maximizeDay: function (e) {
         e.preventDefault();
-        var expanded = e.target.classList.contains("max") || e.target.parentNode.classList.contains("max");
+        var node = e.target;
+        while (!node.classList.contains("day")) {
+            node = node.parentNode;
+        }
+        var expanded = node.classList.contains("max");
         for (var i = 0; i < this.days.length; i++) {
             this.days[i].classList.remove("max");
         }
         if (!expanded) {
-            if (e.target.classList.contains("event")) {
-                e.target.parentNode.classList.add("max");
-            } else {
-                e.target.classList.add("max");
-            }
+            node.classList.add("max");
         }
     },
     init: function(calendarID) {
