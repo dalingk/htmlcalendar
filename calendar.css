@@ -28,6 +28,7 @@ section.calendar div.times div.pad, section.calendar div.day div.header {
 }
 section.calendar div.day {
     flex:1;
+    transition:all .2s;
 }
 section.calendar div.day div.header {
     font-weight:bold;
@@ -44,7 +45,7 @@ section.calendar div.day div.event {
     left:-1px;
     overflow:hidden;
 }
-section.calendar div.day:hover {
+section.calendar div.day.max {
     flex:4;
 }
 section.calendar div.day div.event:hover {
