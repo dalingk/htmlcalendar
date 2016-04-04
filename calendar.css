@@ -1,5 +1,11 @@
 section.calendar {
     display:flex;
+    transition:all .2s;
+}
+section.calendar.fullscreen {
+    position:absolute;
+    left:0;
+    right:0;
 }
 section.calendar div.times, section.calendar div.day {
     position:relative;
