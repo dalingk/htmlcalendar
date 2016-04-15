@@ -1,7 +1,6 @@
 "use strict";
 var calendar = {
     days: {},
-    enableFullScreen: false,
     isFullscreen: false,
     icons:  {
         fullscreen: "<svg fill=\"#000000\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z\"/></svg>", // https://design.google.com/icons/#ic_fullscreen
@@ -42,7 +41,7 @@ var calendar = {
         for (var i = 0; i < this.days.length; i++) {
             this.days[i].addEventListener("click", function (e) {calendar.maximizeDay(e)}, false);
         }
-        if (calendar.enableFullScreen) {
+        if (c.dataset.enablefullscreen) {
             var pad = c.getElementsByClassName("pad");
             for (var i = 0; i < pad.length; i++) {
                 pad[i].addEventListener("click", function (e) {calendar.fullscreen(e, calendarID)}, false);
