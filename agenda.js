@@ -53,6 +53,7 @@ var agenda = {
                     start.innerHTML += ")";
                     n.appendChild(start);
                 }
+                agenda.overlap(ev, this.events[day]);
                 var p = document.createElement("div");
                 p.innerHTML = place;
                 p.title = place;
@@ -70,6 +71,31 @@ var agenda = {
             console.log("Create instance of object before adding events to it");
         }
     },
+    overlap: function (newEvent, eventList) {
+        for (var i in eventList) {
+            var start = newEvent.dataset.start;
+            var end = newEvent.dataset.end;
+            var curEvent = eventList[i];
+            if (typeof(start) === undefined) {
+
+            } else if (start == curEvent.dataset.start || start == curEvent.dataset.end) {
+                newEvent.classList.add("overlap");
+                curEvent.classList.add("overlap");
+            } else if (start >= curEvent.dataset.start && start <= curEvent.dataset.end) {
+                newEvent.classList.add("overlap");
+                curEvent.classList.add("overlap");
+            }
+            if (typeof(end) === undefined) {
+
+            } else if (end == curEvent.dataset.start || end == curEvent.dataset.end) {
+                newEvent.classList.add("overlap");
+                curEvent.classList.add("overlap");
+            } else if (end >= curEvent.dataset.start && end <= curEvent.dataset.end) {
+                newEvent.classList.add("overlap");
+                curEvent.classList.add("overlap");
+            }
+        }
+    },
     milToStd: function (time) {
         var hours24 = parseInt(time.substring(0,2), 10);
         var hours = ((hours24 + 11) % 12) + 1;
@@ -79,6 +105,8 @@ var agenda = {
     },
 };
 var ag = new agenda.agenda(document.body, "test");
-ag.add("MATH 226", "BH 415", ["Monday","Tuesday","Wednesday","Thursday"], {start: "1100", end: "1230"});
-ag.add("MATH 225", "BH 420", ["Monday","Wednesday","Thursday","Friday"], {start:"1059", end:"1230"});
-ag.add("LAN Managers", "CF", ["Friday"], {start: "1100", end: "1200"});
+ag.add("CSCI 330","CF 115",["Monday","Tuesday","Wednesday","Friday"],{start:"1200",end:"1250"});
+ag.add("CSCI 322","CF 227",["Monday","Tuesday","Wednesday","Friday"],{start:"0900",end:"0950"});
+ag.add("MATH 225","MH 231",["Monday","Tuesday","Thursday","Friday"],{start:"1300",end:"1350"});
+ag.add("HNRS 359","AW 408",["Tuesday","Thursday"],{start:"1400",end:"1520"});
+ag.add("LAN Managers","CF",["Friday"],{start:"1100",end:"1150"});
