@@ -1,0 +1,50 @@
+.agenda {
+    width:300px;
+    border:1px solid rgba(0,0,0,.12);
+    padding:8px;
+    margin:0 auto;
+    color:rgba(0,0,0,.87);
+}
+.agenda header {
+    text-align:center;
+}
+.agenda > header {
+    font-weight:bold;
+    border-bottom:1px solid rgba(0,0,0,.12);
+    font-size:1.25em;
+}
+.agenda section {
+    padding:8px;
+    border:1px solid rgba(0,0,0,.12);
+    margin:8px 0;
+    background:lightgrey;
+    border-radius:8px;
+}
+.agenda section > header {
+    text-shadow:0 0 4px white;
+    font-weight:bold;
+}
+.agenda .event {
+    margin:8px 0;
+    padding:8px;
+    background:white;
+    box-shadow:2px 2px 8px rgba(0,0,0,.12);
+}
+.agenda .event.overlap {
+    box-shadow:2px 2px 8px #F44336;
+}
+.agenda .event.overlap .time {
+    color:#F44336;
+}
+.agenda .event header {
+    border-bottom:1px solid rgba(0,0,0,.12);
+    text-align:left;
+}
+.agenda .time, .agenda .event .location {
+    color:rgba(0,0,0,.54);
+}
+@media only screen and (max-device-width: 480px) {
+    .agenda {
+        width:auto;
+    }
+}
