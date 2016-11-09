@@ -2,7 +2,7 @@
 var agenda = {
     element: null,
     dayList: ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-    colorList: ["#FFEBEE","#F3E5F5","#E3F2FD","#FFF3E0","#E0F2F1","#FFFDE7","#FFEBEE"],
+    colorList: ["#FFCDD2","#E1BEE7","#BBDEFB","#FFE0B2","#B2DFDB","#FFF9C4","#FFCDD2"],
     agenda: function (pNode, eID) {
         var elm = document.createElement("section");
         elm.id = eID;
@@ -15,6 +15,7 @@ var agenda = {
         this.add = agenda.add;
         this.events = {};
         this.days = {};
+        this.index = [];
         for (var i in agenda.dayList) {
             var d = document.createElement("section");
             d.classList.add("day");
@@ -29,6 +30,7 @@ var agenda = {
     },
     add: function (name, place, dayList, time) {
         if (this.element !== null) {
+            var indexOut = [];
             for (var i = 0; i < dayList.length; i++) {
                 var day = dayList[i];
                 var pointer = 0;
@@ -38,6 +40,12 @@ var agenda = {
                 var n = document.createElement("header");
                 n.innerHTML = name;
                 n.title = name;
+                var p = document.createElement("div");
+                p.innerHTML = place;
+                p.title = place;
+                p.classList.add("location");
+                ev.appendChild(n);
+                ev.appendChild(p);
                 if ("start" in time) {
                     while (pointer < this.events[day].length && time.start > this.events[day][pointer].dataset.start) {
                         pointer++;
@@ -45,7 +53,7 @@ var agenda = {
                     ev.dataset.start = time.start;
                     var start = document.createElement("span");
                     start.innerHTML = " (" + agenda.milToStd(time['start']);
-                    start.classList.add("quiet");
+                    start.classList.add("time");
                     if ("end" in time) {
                         ev.dataset.end = time.end;
                         start.innerHTML += "-" + agenda.milToStd(time['end']);
@@ -54,19 +62,16 @@ var agenda = {
                     n.appendChild(start);
                 }
                 agenda.overlap(ev, this.events[day]);
-                var p = document.createElement("div");
-                p.innerHTML = place;
-                p.title = place;
-                p.classList.add("location");
-                ev.appendChild(n);
-                ev.appendChild(p);
                 if (pointer >= this.events[day].length || this.events[day].length == 0) {
                     this.days[day].appendChild(ev);
                 } else {
                     this.days[day].insertBefore(ev, this.events[day][pointer]);
                 }
                 this.events[day].splice(pointer, 0, ev);
+                indexOut.push(ev);
             }
+            this.index.push(indexOut);
+            return this.index.length;
         } else {
             console.log("Create instance of object before adding events to it");
         }
