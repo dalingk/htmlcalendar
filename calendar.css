@@ -117,3 +117,9 @@ section.calendar div.day div.event.m45 {
 section.calendar div.day div.event.m90 {
     height:73px;
 }
+section.calendar div.day div.event.m120 {
+    height:97px;
+}
+section.calendar div.day div.event.m240 {
+    height:195px;
+}

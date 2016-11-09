@@ -6,7 +6,7 @@
         <script async src="calendar.js"></script>
     </head>
     <body>
-        <section class="calendar" id="calendar0">
+        <section class="calendar" id="calendar0" data-enablefullscreen="true">
             <div class="times">
                 <div class="pad"></div>
                 <div class="time">8 am</div>
@@ -22,12 +22,30 @@
             </div>
             <div class="day">
                 <div class="header">Monday</div>
-                <div class="event a8"><header>8am test event</header><div class="location">CF 314</div></div>
-                <div class="event a9">9am test event</div>
-                <div class="event a10">10am test event</div>
-                <div class="event a11">11am test event</div>
-                <div class="event p12">12pm test event</div>
-                <div class="event p1">1pm test event</div>
+                <div class="event a8">
+                    <header>8am test event</header>
+                    <div class="location">Big Conference Room</div>
+                </div>
+                <div class="event a9">
+                    <header>9am test event</header>
+                    <div class="location">Starbucks</div>
+                </div>
+                <div class="event a10">
+                    <header>10am test event</header>
+                    <div class="location">Dunkin Donuts</div>
+                </div>
+                <div class="event a11">
+                    <header>11am test event</header>
+                    <div class="location">Office</div>
+                </div>
+                <div class="event p12">
+                    <header>12pm test event</header>
+                    <div class="location">Break Room</div>
+                </div>
+                <div class="event p1">
+                    <header>1pm test event</header>
+                    <div class="location">Parking Lot</div>
+                </div>
                 <div class="event p2">2pm test event</div>
                 <div class="event p3">3pm test event</div>
                 <div class="event p4">4pm test event</div>
@@ -38,6 +56,7 @@
                 <div class="event a9 m30">30 Minute Event</div>
                 <div class="event a9 m30" style="margin-top:24px;">lower 30</div>
                 <div class="event a11 m90">90 minute event</div>
+                <div class="event a11" style="left:50%;">Overlap</div>
                 <div class="event p12 m30 o30">30 minute event</div>
                 <div class="event p4 m90 o30">90 minute event</div>
             </div>
