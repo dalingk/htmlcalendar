@@ -41,6 +41,14 @@ class Calendar {
         this.days = this.calendar.getElementsByClassName("day");
         Array.from(this.days).map((day) => {
             day.addEventListener("click", function (e) {self.maximizeDay(e)}, false);
+            let date = new Date();
+            if (date.getHours() > 7 && date.getHours() < 18) {
+                let bar = document.createElement('div');
+                bar.classList.add('time-bar');
+                let position = ((date.getHours() - 8) + (date.getMinutes() / 60)) * 49 + 32;
+                bar.style.top = `${position}px`;
+                day.appendChild(bar);
+            }
         });
         if (this.calendar.dataset.enablefullscreen) {
             Array.from(this.calendar.getElementsByClassName("pad")).map((item) => {

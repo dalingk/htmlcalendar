@@ -36,6 +36,11 @@ section.calendar div.day {
     flex:1;
     transition:all .2s;
 }
+section.calendar div.time-bar {
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid red;
+}
 section.calendar div.day div.header {
     font-weight:bold;
     border-bottom:1px solid black
@@ -119,6 +124,9 @@ section.calendar div.day div.event.m90 {
 }
 section.calendar div.day div.event.m120 {
     height:97px;
+}
+section.calendar div.day div.event.m180 {
+    height:145px;
 }
 section.calendar div.day div.event.m240 {
     height:195px;
